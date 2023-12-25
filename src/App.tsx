@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Reorder } from 'framer-motion';
 import { useForm, useFieldArray } from 'react-hook-form';
+import { ShowJson } from './components/ShowJson/ShowJson';
 import { FormItem } from './components/FormItem/FormItem';
 
 interface FormProps {
@@ -126,9 +127,7 @@ export function App() {
       </div>
 
       <div className='flex w-1/2 items-center justify-center  bg-teal-50 p-20'>
-        <div className='flex min-h-[90%] w-2/3 items-center justify-center rounded-3xl bg-cyan-800 p-20 text-teal-50'>
-          <pre>{JSON.stringify(watch('form'), null, 2)}</pre>
-        </div>
+        <ShowJson watch={()=>watch('form')} />
       </div>
     </div>
   );
